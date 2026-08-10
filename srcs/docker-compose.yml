@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   mariadb:
-    image: mariadb
+    image: inception_mariadb:latest
     build: ./requirements/mariadb
     container_name: mariadb
     env_file: .env
@@ -13,7 +13,7 @@ services:
     restart: unless-stopped
 
   wordpress:
-    image: wordpress
+    image: inception_wordpress:latest
     build: ./requirements/wordpress
     container_name: wordpress
     env_file: .env
@@ -24,7 +24,7 @@ services:
     restart: unless-stopped
 
   nginx:
-    image: nginx
+    image: inception_nginx:latest
     build: ./requirements/nginx
     container_name: nginx
     env_file: .env
