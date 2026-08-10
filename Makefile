@@ -10,8 +10,14 @@ down:
 	$(COMPOSE) down
 
 clean:
-	$(COMPOSE) down -v -rmi all
+	$(COMPOSE) down -v --rmi all
 
 re: clean all
 
-.PHONY: all down clean re
+logs:
+	$(COMPOSE) logs -f
+
+ps:
+	$(COMPOSE) ps
+
+.PHONY: all down clean re logs ps
