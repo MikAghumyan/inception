@@ -2,7 +2,6 @@ version: '3.8'
 
 services:
   mariadb:
-    image: inception_mariadb:latest
     build: ./requirements/mariadb
     container_name: mariadb
     env_file: .env
@@ -13,7 +12,6 @@ services:
     restart: unless-stopped
 
   wordpress:
-    image: inception_wordpress:latest
     build: ./requirements/wordpress
     container_name: wordpress
     env_file: .env
@@ -24,7 +22,6 @@ services:
     restart: unless-stopped
 
   nginx:
-    image: inception_nginx:latest
     build: ./requirements/nginx
     container_name: nginx
     env_file: .env
@@ -34,6 +31,14 @@ services:
       - "443:443"
     volumes:
       - wordpress_data:/var/www/html
+    networks:
+      - inception
+    restart: unless-stopped
+
+  redis:
+    build: ./requirements/redis
+    container_name: redis
+    env_file: .env
     networks:
       - inception
     restart: unless-stopped

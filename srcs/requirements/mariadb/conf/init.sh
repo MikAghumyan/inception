@@ -5,6 +5,10 @@ set -e
 mkdir -p /run/mysqld
 chown mysql:mysql /run/mysqld
 
+# Ensure the database directory is writable when it comes from a host bind mount
+mkdir -p /var/lib/mysql
+chown -R mysql:mysql /var/lib/mysql
+
 # Only initialize if DB doesn't exist yet (first run)
 if [ ! -d "/var/lib/mysql/mysql" ]; then
     mysql_install_db --user=mysql --datadir=/var/lib/mysql > /dev/null
