@@ -69,6 +69,15 @@ services:
     networks:
       - inception
     restart: unless-stopped
+  
+  static_website:
+    build: ./requirements/static_website
+    container_name: static_website    
+    ports:
+      - "8080:80"
+    networks:
+      - inception
+    restart: unless-stopped
 
 secrets:
   mariadb_root_password:

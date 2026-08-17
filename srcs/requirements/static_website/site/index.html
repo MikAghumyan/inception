@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>42 Yerevan Student</title>
+    <meta name="description" content="A simple static website showcasing a student profile at 42 Yerevan." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="hero">
+        <nav class="topbar">
+            <div class="brand">42 Yerevan</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#journey">Journey</a>
+                <a href="#skills">Skills</a>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="eyebrow">Student profile</p>
+                <h1>Hello! I’m Mikayel Aghumyan.</h1>
+                <p class="lead">
+                    I’m learning to code, solve problems, and build real-world projects through
+                    creativity, discipline, and teamwork.
+                </p>
+                <div class="cta-row">
+                    <a href="#about" class="button primary">Learn more</a>
+                    <a href="#skills" class="button secondary">My stack</a>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <div class="avatar">MA</div>
+                <h2>Mikayel Aghumyan</h2>
+                <ul>
+                    <li><span>Focus</span> C / Unix / Docker</li>
+                    <li><span>Goal</span> Become a strong developer</li>
+                    <li><span>Campus</span> Yerevan, Armenia</li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <div class="section-heading">
+                <p class="eyebrow">About me</p>
+                <h2>Growing through the 42 experience</h2>
+            </div>
+
+            <div class="about-grid">
+                <article class="info-card">
+                    <h3>Who I am</h3>
+                    <p>
+                        I am a passionate learner who enjoys solving algorithmic problems,
+                        understanding low-level systems, and exploring how software works under the hood.
+                    </p>
+                </article>
+
+                <article class="info-card">
+                    <h3>What I value</h3>
+                    <p>
+                        Curiosity, persistence, and teamwork are at the heart of my learning journey.
+                        At 42, every project pushes me to think critically and improve continuously.
+                    </p>
+                </article>
+
+                <article class="info-card">
+                    <h3>What motivates me</h3>
+                    <p>
+                        I want to build meaningful software, to learn by doing, and to become confident
+                        in both coding and problem-solving.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <section id="journey" class="section muted">
+            <div class="section-heading">
+                <p class="eyebrow">My path</p>
+                <h2>Learning journey</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="dot"></span>
+                    <div>
+                        <h3>Piscine</h3>
+                        <p>Started by learning the basics of shell, C, and teamwork.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="dot"></span>
+                    <div>
+                        <h3>Core curriculum</h3>
+                        <p>Deepening my knowledge of algorithms, data structures, and system design.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="dot"></span>
+                    <div>
+                        <h3>Projects</h3>
+                        <p>Building practical projects with Docker, networking, and web services.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="section-heading">
+                <p class="eyebrow">Skills</p>
+                <h2>Currently learning</h2>
+            </div>
+
+            <div class="skills">
+                <span>C</span>
+                <span>Linux</span>
+                <span>Git</span>
+                <span>Shell</span>
+                <span>Docker</span>
+                <span>Networking</span>
+                <span>Makefile</span>
+                <span>Problem Solving</span>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Built as a simple demo for the Inception project at 42 Yerevan.</p>
+    </footer>
+</body>
+
+</html>
