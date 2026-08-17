@@ -3,6 +3,13 @@ set -e
 
 WP_PATH=/var/www/html
 
+MYSQL_ROOT_PASSWORD=$(cat /run/secrets/mariadb_root_password)
+MYSQL_DATABASE=$(cat /run/secrets/mariadb_database_name)
+MYSQL_USER=$(cat /run/secrets/mariadb_user_name)
+MYSQL_PASSWORD=$(cat /run/secrets/mariadb_user_password)
+WP_ADMIN_PASSWORD=$(cat /run/secrets/wordpress_admin_password)
+WP_USER_PASSWORD=$(cat /run/secrets/wordpress_user_password)
+
 mkdir -p "$WP_PATH"
 mkdir -p /run/php
 
