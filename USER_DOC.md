@@ -29,6 +29,9 @@ Open the website at:
 The WordPress admin panel is available at:
 - https://maghumya.42.fr/wp-admin
 
+Adminer is available at:
+- http://localhost:8081/adminer.php
+
 Port 80 is not used for public access.
 
 ## Credentials

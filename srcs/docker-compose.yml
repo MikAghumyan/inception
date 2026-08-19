@@ -69,14 +69,25 @@ services:
     networks:
       - inception
     restart: unless-stopped
-  
+
   static_website:
     build: ./requirements/static_website
-    container_name: static_website    
+    container_name: static_website
     ports:
       - "8080:80"
     networks:
       - inception
+    restart: unless-stopped
+
+  adminer:
+    build: ./requirements/adminer
+    container_name: adminer
+    ports:
+      - "8081:80"
+    networks:
+      - inception
+    depends_on:
+      - mariadb
     restart: unless-stopped
 
 secrets:
