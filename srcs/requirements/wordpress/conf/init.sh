@@ -26,7 +26,14 @@ if [ ! -f "$WP_PATH/wp-config.php" ]; then
 fi
 
 echo "Waiting for MariaDB..."
-until wp db check --path="$WP_PATH" --allow-root >/dev/null 2>&1; do
+for attempt in $(seq 1 30); do
+    if wp db check --path="$WP_PATH" --allow-root >/dev/null 2>&1; then
+        break
+    fi
+    if [ "$attempt" -eq 30 ]; then
+        echo "MariaDB did not become ready in time" >&2
+        exit 1
+    fi
     sleep 5
 done
 

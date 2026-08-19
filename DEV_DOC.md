@@ -2,17 +2,20 @@
 
 ## Prerequisites
 - Docker and Docker Compose.
+- OpenSSL, used by the Makefile to generate local secrets.
 - A Linux environment or virtual machine.
 - Access to the repository root.
 
 ## Setup
 The project keeps its configuration in `srcs/.env`.
 
-On the first `make`, the Makefile generates that file locally with random passwords if it still contains the placeholder values.
+On the first `make`, the Makefile creates `srcs/.env` and the ignored files in `srcs/secrets/` if they do not exist. Pass `LOGIN=your_login` to `make` when the Linux username differs from the 42 login.
 
 Data is persisted through the Docker named volumes mapped to:
 - `$(HOME)/data/mariadb`
 - `$(HOME)/data/wordpress`
+
+The database and WordPress files are stored in the named Docker volumes `mariadb_data` and `wordpress_data`, backed by those host directories.
 
 ## Build and Launch
 Build and start everything with:
@@ -33,6 +36,11 @@ make down
 Remove containers, images, and volumes with:
 ```bash
 make clean
+```
+
+Remove all data and containers with:
+```bash
+make fclean
 ```
 
 ## Useful Docker Commands

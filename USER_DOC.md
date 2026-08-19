@@ -46,12 +46,9 @@ The static website is available at:
 Port 80 is not used for public access. Adminer, cAdvisor, and the static website are local HTTP services.
 
 ## Credentials
-Credentials are generated locally on the first `make` run and stored in `srcs/.env`.
+Credentials are generated locally on the first `make` run. Passwords are stored in the ignored files under `srcs/secrets/` and mounted into the relevant containers as Docker secrets. The non-sensitive usernames, domain, and email settings are stored in `srcs/.env`.
 
-That file contains:
-- MariaDB root and application credentials.
-- WordPress administrator credentials.
-- The WordPress editor account used for comments.
+For Adminer, use the MariaDB service name `mariadb` as the server, then use the database username, password, and database name from the corresponding files in `srcs/secrets/`.
 
 ## Basic Checks
 To confirm the stack is healthy:

@@ -7,12 +7,12 @@ Inception is a small Docker-based infrastructure made of NGINX, WordPress with p
 
 The main design choices are:
 - One service per container.
-- Docker Volumes vs Bind Mounts: volumes are managed by Docker and are preferred here for persistence; bind mounts are used for the project data directories.
+- Docker Volumes vs Bind Mounts: the WordPress and MariaDB data use named Docker volumes backed by host directories under `$(HOME)/data`, while configuration is kept in the repository's local `.env` and secrets files.
 - NGINX is the only public entrypoint on port 443 with TLSv1.2/TLSv1.3.
 - WordPress and MariaDB keep their data on persistent volumes.
 - Adminer provides database administration on port 8081.
 - cAdvisor provides container metrics on port 8082.
-- Secrets are generated locally at setup time instead of being stored in the repository.
+- Secrets are generated locally at setup time, supplied to containers through Docker secrets, and ignored by Git.
 
 Comparison notes:
 - Virtual Machines vs Docker: VMs virtualize a full OS, while Docker shares the host kernel and starts faster with less overhead.
@@ -22,7 +22,7 @@ Comparison notes:
 
 ## Instructions
 1. Run `make` from the repository root.
-2. The first run generates `srcs/.env` locally with passwords and starts the stack.
+2. The first run generates `srcs/.env` and local Docker secret files, then starts the stack. Use `make LOGIN=your_login` when your system username differs from your 42 login.
 3. Open `https://maghumya.42.fr` in a browser.
 4. Open `http://localhost:8081/adminer.php` for Adminer or `http://localhost:8082` for cAdvisor.
 5. Use `make down` to stop the stack, `make re` to rebuild it, and `make ps` to inspect the containers.
