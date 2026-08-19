@@ -90,6 +90,20 @@ services:
       - mariadb
     restart: unless-stopped
 
+  cadvisor:
+    build: ./requirements/cAdvisor
+    container_name: cadvisor
+    ports:
+      - "8082:8082"
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    networks:
+      - inception
+    restart: unless-stopped
+
 secrets:
   mariadb_root_password:
     file: ./secrets/db_root_password.txt
