@@ -46,6 +46,22 @@ View logs:
 docker compose -f srcs/docker-compose.yml --env-file srcs/.env logs -f
 ```
 
+Check the service status:
+```bash
+make ps
+```
+
+Test Adminer:
+```bash
+curl -I http://localhost:8081/adminer.php
+```
+
+Test cAdvisor and its metrics endpoint:
+```bash
+curl -I http://localhost:8082
+curl http://localhost:8082/metrics
+```
+
 List volumes:
 ```bash
 docker volume ls
