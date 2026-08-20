@@ -8,8 +8,6 @@ services:
     secrets:
       - mariadb_root_password
       - mariadb_user_password
-      - mariadb_database_name
-      - mariadb_user_name
     volumes:
       - mariadb_data:/var/lib/mysql
     networks:
@@ -23,8 +21,6 @@ services:
     secrets:
       - mariadb_root_password
       - mariadb_user_password
-      - mariadb_database_name
-      - mariadb_user_name
       - wordpress_admin_password
       - wordpress_user_password
     volumes:
@@ -109,10 +105,6 @@ secrets:
     file: ./secrets/db_root_password.txt
   mariadb_user_password:
     file: ./secrets/db_password.txt
-  mariadb_database_name:
-    file: ./secrets/db_name.txt
-  mariadb_user_name:
-    file: ./secrets/db_user.txt
   wordpress_admin_password:
     file: ./secrets/wp_admin_password.txt
   wordpress_user_password:

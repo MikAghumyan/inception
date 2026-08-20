@@ -21,9 +21,9 @@ Comparison notes:
 
 
 ## Instructions
-1. Run `make` from the repository root.
-2. The first run generates `srcs/.env` and local Docker secret files, then starts the stack. Use `make LOGIN=your_login` when your system username differs from your 42 login.
-3. Open `https://maghumya.42.fr` in a browser.
+1. Create the local configuration and secret files with `make prepare`. Set your 42 login with `make prepare LOGIN=your_login` when it differs from your system username.
+2. Review `srcs/.env`, then run `make` to build and start the stack.
+3. Open the domain configured in `srcs/.env` in a browser.
 4. Open `http://localhost:8081/adminer.php` for Adminer or `http://localhost:8082` for cAdvisor.
 5. Use `make down` to stop the stack, `make re` to rebuild it, and `make ps` to inspect the containers.
 

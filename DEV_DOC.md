@@ -9,7 +9,14 @@
 ## Setup
 The project keeps its configuration in `srcs/.env`.
 
-On the first `make`, the Makefile creates `srcs/.env` and the ignored files in `srcs/secrets/` if they do not exist. Pass `LOGIN=your_login` to `make` when the Linux username differs from the 42 login.
+Copy the configuration and secret examples before the first build. Replace `your_login` with the 42 login used in your domain:
+```bash
+make prepare LOGIN=your_login
+```
+
+Review `srcs/.env` before starting the stack. A plain `make` builds and starts the stack.
+
+The expected secret filenames are shown in `srcs/secrets.example/`. The database name and username are configured through `DB_NAME` and `DB_USER` in `srcs/.env`. Do not commit the generated files in `srcs/secrets/`.
 
 Data is persisted through the Docker named volumes mapped to:
 - `$(HOME)/data/mariadb`
