@@ -44,7 +44,7 @@ services:
     restart: unless-stopped
 
   redis:
-    build: ./requirements/redis
+    build: ./requirements/bonus/redis
     container_name: redis
     env_file: .env
     networks:
@@ -52,7 +52,7 @@ services:
     restart: unless-stopped
 
   ftp:
-    build: ./requirements/ftp
+    build: ./requirements/bonus/ftp
     container_name: ftp
     env_file: .env
     volumes:
@@ -67,7 +67,7 @@ services:
     restart: unless-stopped
 
   static_website:
-    build: ./requirements/static_website
+    build: ./requirements/bonus/static_website
     container_name: static_website
     ports:
       - "8080:80"
@@ -76,7 +76,7 @@ services:
     restart: unless-stopped
 
   adminer:
-    build: ./requirements/adminer
+    build: ./requirements/bonus/adminer
     container_name: adminer
     ports:
       - "8081:80"
@@ -87,7 +87,7 @@ services:
     restart: unless-stopped
 
   cadvisor:
-    build: ./requirements/cAdvisor
+    build: ./requirements/bonus/cAdvisor
     container_name: cadvisor
     ports:
       - "8082:8082"
