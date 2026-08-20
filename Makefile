@@ -23,11 +23,9 @@ clean:
 
 fclean:
 	$(COMPOSE) down -v --rmi all --remove-orphans
-	@rm -rf $(DATA_DIR)/mariadb/* $(DATA_DIR)/wordpress/*
+	@sudo rm -rf $(DATA_DIR)/mariadb/* $(DATA_DIR)/wordpress/*
 
-re:
-	$(COMPOSE) down -v --rmi all
-	$(COMPOSE) up -d --build
+re: fclean all
 
 logs:
 	$(COMPOSE) logs -f
