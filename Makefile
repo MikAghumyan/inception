@@ -21,11 +21,7 @@ down:
 clean:
 	$(COMPOSE) down -v --rmi all
 
-fclean:
-	$(COMPOSE) down -v --rmi all --remove-orphans
-	@sudo rm -rf $(DATA_DIR)/mariadb/* $(DATA_DIR)/wordpress/*
-
-re: fclean all
+re: clean all
 
 logs:
 	$(COMPOSE) logs -f

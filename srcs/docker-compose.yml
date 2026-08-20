@@ -18,6 +18,8 @@ services:
     build: ./requirements/wordpress
     container_name: wordpress
     env_file: .env
+    depends_on:
+      - mariadb
     secrets:
       - mariadb_root_password
       - mariadb_user_password

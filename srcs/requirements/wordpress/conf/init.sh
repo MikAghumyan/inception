@@ -3,12 +3,10 @@ set -e
 
 WP_PATH=/var/www/html
 
-MYSQL_ROOT_PASSWORD=$(cat /run/secrets/mariadb_root_password)
-MYSQL_DATABASE=${DB_NAME}
-MYSQL_USER=${DB_USER}
-MYSQL_PASSWORD=$(cat /run/secrets/mariadb_user_password)
-WP_ADMIN_PASSWORD=$(cat /run/secrets/wordpress_admin_password)
-WP_USER_PASSWORD=$(cat /run/secrets/wordpress_user_password)
+DB_PASSWORD=$(cat /run/secrets/mariadb_user_password | tr -d '\n\r')
+MYSQL_ROOT_PASSWORD=$(cat /run/secrets/mariadb_root_password | tr -d '\n\r')
+WP_ADMIN_PASSWORD=$(cat /run/secrets/wordpress_admin_password | tr -d '\n\r')
+WP_USER_PASSWORD=$(cat /run/secrets/wordpress_user_password | tr -d '\n\r')
 
 mkdir -p "$WP_PATH"
 mkdir -p /run/php
@@ -18,9 +16,9 @@ if [ ! -f "$WP_PATH/wp-config.php" ]; then
 
     wp config create \
         --path="$WP_PATH" \
-        --dbname=$MYSQL_DATABASE \
-        --dbuser=$MYSQL_USER \
-        --dbpass=$MYSQL_PASSWORD \
+        --dbname=$DB_NAME \
+        --dbuser=$DB_USER \
+        --dbpass=$DB_PASSWORD \
         --dbhost="mariadb" \
         --allow-root
 fi
