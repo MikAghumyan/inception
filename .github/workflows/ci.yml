@@ -14,42 +14,42 @@ jobs:
       - name: Lint Nginx Dockerfile
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: ./requirements/nginx/Dockerfile
+          dockerfile: ./srcs/requirements/nginx/Dockerfile
           failure-threshold: warning
       - name: Lint MariaDB Dockerfile
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: ./requirements/mariadb/Dockerfile
+          dockerfile: ./srcs/requirements/mariadb/Dockerfile
           failure-threshold: warning
       - name: Lint WordPress Dockerfile
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: ./requirements/wordpress/Dockerfile
+          dockerfile: ./srcs/requirements/wordpress/Dockerfile
           failure-threshold: warning
       - name: Lint Redis Dockerfile
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: ./requirements/bonus/redis/Dockerfile
+          dockerfile: ./srcs/requirements/bonus/redis/Dockerfile
           failure-threshold: warning
       - name: Lint FTP Dockerfile
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: ./requirements/bonus/ftp/Dockerfile
+          dockerfile: ./srcs/requirements/bonus/ftp/Dockerfile
           failure-threshold: warning
       - name: Lint adminer Dockerfile
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: ./requirements/bonus/adminer/Dockerfile
+          dockerfile: ./srcs/requirements/bonus/adminer/Dockerfile
           failure-threshold: warning
       - name: Lint static_website Dockerfile
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: ./requirements/bonus/static_website/Dockerfile
+          dockerfile: ./srcs/requirements/bonus/static_website/Dockerfile
           failure-threshold: warning
       - name: Lint cAdvisor Dockerfile
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: ./requirements/bonus/cAdvisor/Dockerfile
+          dockerfile: ./srcs/requirements/bonus/cAdvisor/Dockerfile
           failure-threshold: warning
   build:
     runs-on: ubuntu-latest
